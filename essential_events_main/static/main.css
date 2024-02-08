@@ -73,6 +73,148 @@ nav li:first-child {
     display: none;
 }
 
+.hero-item {
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    filter: grayscale(100%);
+    transition: all 1s;
+}
+
+.hero {
+    border-bottom: rgba(255,255,255,0.5) solid 1px;
+    box-shadow: 0 4px 4px rgba(255, 255, 255, 1);
+}
+
+.hero-item {
+    filter: none;
+}
+
+.hero-div {
+    background-color: rgba(255,255,255,0.5);
+    padding: 25px;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40% 0 40% 0;
+}
+
+.hero-div h2, p{
+    color: rgb(0, 0, 0);
+}
+
+.hero-div h2{
+    font-size: 150px;
+}
+
+.hero-div p{
+    font-size: 40px;
+    text-align: center;
+}
+
+.slide {
+    height: 75vh;
+    width: 100%;
+    background-size:cover;
+    filter: grayscale(100%);
+    transition: all 1s;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide:first-child {
+    display: flex;
+}
+
+.slide:hover {
+    filter: none;
+}
+
+.slider-wrapper {
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+/* Previous and next buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 50px;
+    transition: all 1s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(246,239,231,0.5);
+  }
+
+  /* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+
+  /* The dots/bullets/indicators */
+.dot-container {
+    position: absolute;
+    bottom: 2%;
+    width: 100%;
+}
+.dot {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+
+footer {
+    height: 10vh;
+    width: 100%;
+    background-color: #F6EFE7;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
 @media(max-width: 800px) {
     .hideOnMobile {
         display: none;
@@ -81,10 +223,18 @@ nav li:first-child {
     .menu-button {
         display: block;
     }
+
+    footer {
+        flex-direction: column;
+    }
 }
 
 @media(max-width: 400px) {
     .sidebar {
         width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
     }
 }

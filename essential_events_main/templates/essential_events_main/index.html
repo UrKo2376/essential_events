@@ -6,5 +6,83 @@
 {% endblock %}
 
 {% block content %}
+    <section class="hero">
+        {% for h in hero %}
+            <div class="hero-item grayscale" style="background-image: url('{{ media|add:h.image }}'); filter: grayscale(100%);">
+                <div class="hero-div">
+                    <h2>{{ h.name }}</h2>
+                    <p>{{ h.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    <section class="container">
+        <div class="slider-wrapper">
+            {% for slide in slider %}
+                <div class="slide fade" style="background-image: url('{{ media|add:slide.image }}')">
+                    <div class="hero-div">
+                        <h1>{{ slide.name }}</h1>
+                        <p>{{ slide.description }}</p>
+                    </div>
+                    <div class="dot-container" style="text-align:center">
+                        {% for slide in slider %}
+                            <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span> 
+                        {% endfor %}
+                      </div>
+                </div>
+            {% endfor %}
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
 
+    </section>
+    <script>
+        // Begin slideshow JS
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        
+        slides[slideIndex-1].style.display = "flex";  
+        dots[slideIndex-1].className += " active";
+        }
+
+        // Auto switch slides every 8 seconds (adjust as needed)
+        let slideInterval = setInterval(function() {
+            plusSlides(1);
+        }, 8000);
+
+        // Pause the slideshow on mouseover
+        document.querySelector('.slider-wrapper').addEventListener('mouseover', function() {
+            clearInterval(slideInterval);
+        });
+
+        // Resume the slideshow on mouseout
+        document.querySelector('.slider-wrapper').addEventListener('mouseout', function() {
+            slideInterval = setInterval(function() {
+                plusSlides(1);
+            }, 8000);
+        });
+        // End Slideshow JS
+</script>
 {% endblock %}
