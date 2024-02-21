@@ -9,9 +9,9 @@
     <section class="hero">
         {% for h in hero %}
             <div class="hero-item grayscale" style="background-image: url('{{ media|add:h.image }}'); filter: grayscale(100%);">
-                <div class="hero-div">
+                <div class="highlight-div">
                     <h2>{{ h.name }}</h2>
-                    <p>{{ h.description }}</p>
+                    <p>{{ h.description|safe }}</p>
                 </div>
             </div>
         {% endfor %}
@@ -20,8 +20,8 @@
         <div class="slider-wrapper">
             {% for slide in slider %}
                 <div class="slide fade" style="background-image: url('{{ media|add:slide.image }}')">
-                    <div class="hero-div">
-                        <h1>{{ slide.name }}</h1>
+                    <div class="highlight-div">
+                        <h2>{{ slide.name }}</h2>
                         <p>{{ slide.description }}</p>
                     </div>
                     <div class="dot-container" style="text-align:center">
@@ -29,10 +29,11 @@
                             <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span> 
                         {% endfor %}
                       </div>
+                      <a class="prev" onclick="plusSlides(-1)">❮</a>
+                      <a class="next" onclick="plusSlides(1)">❯</a>
                 </div>
             {% endfor %}
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
+
         </div>
 
     </section>

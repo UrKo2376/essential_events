@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static "main.css" %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
     <script src="{% static "/javascript/main.js" %}"></script>
 </head>
 <body>
     <nav class="nav-bar">
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href="/"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-            <li><a href="#">Link 1</a></li>
+            <li><a href="/Acts">Artists Gallery</a></li>
             <li><a href="#">Link 2</a></li>
             <li><a href="#">Link 3</a></li>
             <li><a href="#">Link 4</a></li>
@@ -23,7 +24,7 @@
         </ul>  
         <ul>
             <li><a href="/"><img class='logo-img' src='{% static "images/Essential Events Logo.png" %}' height='100'></a></li>
-            <li class="hideOnMobile"><a href="#">Link 1</a></li>
+            <li class="hideOnMobile"><a href="/Acts">Artists Gallery</a></li>
             <li class="hideOnMobile"><a href="#">Link 2</a></li>
             <li class="hideOnMobile"><a href="#">Link 3</a></li>
             <li class="hideOnMobile"><a href="#">Link 4</a></li>
@@ -36,13 +37,13 @@
     {% endblock %}
     <footer>
         <div>
-            <h2>Contact details here</h2>
+            <h3>Contact details here</h3>
         </div>
         <div>
-            <h2>Mini Menu here</h2>
+            <h3>Mini Menu here</h3>
         </div>
         <div>
-            <h2>Blog details here</h2>
+            <h3>Blog details here</h3>
         </div>
     </footer>
 </body>

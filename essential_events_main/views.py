@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import staticModel
+from .models import staticModel, actsModel, actImages
 from django.conf import settings
 
 # Create your views here.
@@ -13,3 +13,14 @@ def index(request):
         'media': mediaURL,
     }
     return render(request, "essential_events_main/index.html", context)
+
+def actsMain(request):
+    actsData = actsModel.objects.all()
+    actsImagesData = actImages.objects.all()
+    mediaURL = 'essential_events_main/static/images/actsModel/'
+    context = {
+        'actsData': actsData,
+        'actImageData': actImages,
+        'media': mediaURL,
+    }
+    return render(request, "essential_events_main/actsMain.html", context)

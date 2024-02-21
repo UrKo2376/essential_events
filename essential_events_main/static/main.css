@@ -41,6 +41,10 @@ nav a:hover {
     background-color: #f0f0f0;
 }
 
+nav li:first-child a:hover {
+    background-color: initial; /* or any other style you want for the first child's anchor hover */
+}
+
 nav li:first-child {
     margin-right: auto;
 }
@@ -82,7 +86,7 @@ nav li:first-child {
     justify-content: center;
     background-size: cover;
     filter: grayscale(100%);
-    transition: all 1s;
+    transition: all 1.5s;
 }
 
 .hero {
@@ -94,7 +98,7 @@ nav li:first-child {
     filter: none;
 }
 
-.hero-div {
+.highlight-div {
     background-color: rgba(255,255,255,0.5);
     padding: 25px;
     width: 50%;
@@ -106,17 +110,23 @@ nav li:first-child {
     border-radius: 40% 0 40% 0;
 }
 
-.hero-div h2, p{
+h2, p{
     color: rgb(0, 0, 0);
 }
 
-.hero-div h2{
-    font-size: 150px;
+h2{
+    font-size: clamp(100px, 100%, 150px);
+    text-align: center;
 }
 
-.hero-div p{
-    font-size: 40px;
+h3{
+    font-size: clamp(18px, 100%, 40px);
     text-align: center;
+}
+
+p{
+    font-size: clamp(30px, 50%, 40px);
+    text-align: left;
 }
 
 .slide {
@@ -147,12 +157,15 @@ nav li:first-child {
 
 /* Previous and next buttons */
 .prev, .next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     position: absolute;
     top: 50%;
     width: auto;
     padding: 16px;
-    margin-top: -22px;
+    /* margin-top: -22px; */
     color: black;
     font-weight: bold;
     font-size: 50px;
@@ -165,6 +178,11 @@ nav li:first-child {
   /* Position the "next button" to the right */
 .next {
     right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prev {
+    left: 0px;
     border-radius: 3px 0 0 3px;
   }
   
@@ -206,6 +224,42 @@ nav li:first-child {
     to {opacity: 1}
   }
 
+.actGallerySection {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #717171;
+    padding: 20px;
+    justify-content: center;
+    height: 70vh;
+    width: 100vw;
+    align-items: flex-start;
+}
+
+.actGallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(25% - 20px), 1fr));
+    gap: 20px;
+    max-width: 1200px;
+}
+
+.actGalleryCard {
+    background-color: rgb(255, 255, 255);
+    color: #FFFFFF;
+    border-radius: 25px;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.actGalleryCard p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.actGalleryCard h3 {
+    font-size: 16px;
+    color: black;
+}
+
 footer {
     height: 10vh;
     width: 100%;
@@ -227,6 +281,21 @@ footer {
     footer {
         flex-direction: column;
     }
+
+    h2 {
+        font-size: clamp(50px, 50%, 100px);
+        text-align: center;
+    }
+
+    h3 {
+        font-size: clamp(18px, 50%, 40px);
+        text-align: center;
+    }
+    
+    p {
+        font-size: clamp(20px, 50%, 30px);
+        text-align: left;
+    }
 }
 
 @media(max-width: 400px) {
@@ -237,4 +306,20 @@ footer {
     footer {
         flex-direction: column;
     }
+
+    h2 {
+        font-size: clamp(20px, 50%, 50px);;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: clamp(12px, 50%, 20px);
+        text-align: center;
+    }
+    
+    p {
+        font-size: clamp(10px, 50%, 20px);
+        text-align: left;
+    }
+
 }
